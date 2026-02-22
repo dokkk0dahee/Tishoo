@@ -1,0 +1,16 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@layer base {
+  body {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-touch-callout: none;
+    
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
