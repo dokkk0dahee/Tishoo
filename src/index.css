@@ -1,6 +1,33 @@
 /* src/index.css */
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Pretendardvariable';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 기본 폰트 설정 */
+@layer base {
+  * {
+    font-family: 'Pretendardvariable', 'Pretendard', system-ui, sans-serif;
+  }
+  
+  html {
+    font-family: 'Pretendardvariable', 'Pretendard', system-ui, sans-serif;
+  }
+  
+  body {
+    font-family: 'Pretendardvariable', 'Pretendard', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea {
+    font-family: 'Pretendardvariable', 'Pretendard', system-ui, sans-serif;
+  }
+}
+
 @layer base {
   body {
     -webkit-tap-highlight-color: transparent;
