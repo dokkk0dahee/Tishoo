@@ -22,7 +22,7 @@ const Header = () => {
         </header>
 
         {/* 메뉴 전체를 감싸는 투명한 방어막*/}
-        <div className={`absolute inset-0 z-50 transition-all duration-300 ${
+        <div className={`absolute inset-0 z-50 overflow-hidden transition-all duration-300 ${
             isOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"}`}>
             <div className="absolute inset-0 bg-black/20" //바깥 어두운 배경 (여기를 누르면 무조건 닫힘)
                 onClick={() => setIsOpen(false)} /> 
