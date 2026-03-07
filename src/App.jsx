@@ -3,7 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Search from "./pages/Page1";
 import Community from "./pages/Page2";
-import Profile from "./pages/Page3";
+import Profile from "./pages/Page3"; 
 
 function App() {
   return (
@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/page1" element={<div>검색 페이지</div>} />
-          <Route path="/page2" element={<div>커뮤니티 페이지</div>} />
-          <Route path="/page3" element={<div>프로필 페이지</div>} />
+          <Route path="/page1" element={<Search />} />
+          <Route path="/page2" element={<Community />} />
+          <Route path="/page3" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
