@@ -13,7 +13,7 @@ const Layout = () => {
             <Header />
 
             {/* 페이지별 콘텐츠가 보여지는 영역 */}
-            <main className="flex-1 pb-20"> {/* pb-20은 네비바에 가려지지 않게 여백을 주는 것 */}
+            <main className="flex-1 overflow-y-auto px-4 pt-4 pb-20"> {/* pb-20은 네비바에 가려지지 않게 여백을 주는 것 */}
             <Outlet />
             </main>
 
