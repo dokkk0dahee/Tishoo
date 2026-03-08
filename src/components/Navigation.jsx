@@ -13,7 +13,7 @@ const Navigation = () => {
         location.pathname === path ? "text-[#0A2472]" : "text-[#8E8E93]";
 
     return (
-        <nav className="fixed bottom-0 w-full max-w-[480px] h-[56px] bg-white border-t border-[#E3E6F0] flex justify-around items-center px-2 z-50">
+        <nav className="fixed bottom-0 w-full max-w-[480px] h-[78px] pb-[22px] bg-white border-t border-[#E3E6F0] flex justify-around items-center px-2 z-50">
         <Link to="/" className={`flex flex-col items-center ${getActiveClass("/")}`}>
             <HomeIcon />
             <span className="text-[12px]">홈</span>
