@@ -17,7 +17,7 @@ const Layout = () => {
             <Outlet />
             </main>
 
-            {/* 공통 하단 네비바 */}
+            {/* 공통 하단 네비바 */}    
             <Navigation />
         </div>
     </div>
