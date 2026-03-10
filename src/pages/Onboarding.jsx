@@ -118,26 +118,47 @@ const Onboarding = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-white relative">
+        <div className="flex flex-col h-full relative">
         
-        {/* 1. 상단 타임라인 (Stepper) */}
-        <div className="flex items-center justify-between px-6 pt-6 mb-8 relative shrink-0">
-            <div className="absolute left-10 right-10 h-[2px] border-t-2 border-dashed border-blue-200 top-1/2 -translate-y-1/2 z-0"></div>
-            {surveyData.map((data) => (
-            <div key={data.step} className="z-10 bg-white px-2">
-                {currentStep >= data.step ? (
-                <div className="w-8 h-8 rounded-full border-2 border-blue-300 bg-blue-50 flex items-center justify-center text-blue-900 font-bold text-sm shadow-sm transition-all">
-                    {data.step}
-                </div>
-                ) : (
-                <div className="w-3 h-3 rounded-full bg-blue-200 transition-all"></div>
-                )}
-            </div>
-            ))}
+    {/* 1. 상단 타임라인 (Stepper) */}
+    <div className="flex items-center justify-between px-6 pt-[40px] relative shrink-0">
+        
+        {/* 배경 선 래퍼 (점선 위에 파란 실선을 겹쳐 올립니다) */}
+        <div className="absolute left-[-15px] right-[-15px] h-[1.5px] -translate-y-1/2 z-0">
+            {/* 기본 점선 (연한 파란색) */}
+            <div className="absolute top-0 left-0 w-full h-full border-t-[1.5px] border-dashed border-[#B9CCFD]"></div>
+            
+            {/* 차오르는 파란 실선 */}
+            <div 
+                className="absolute top-0 left-0 h-full border-t-[1.5px] border-solid border-[#B9CCFD] transition-all duration-500 ease-in-out"
+                style={{ width: currentStep === 1 
+                    ? "15%" // 👈 1단계일 때 선이 얼마나 나갈지 여기서 직접 조절하세요! (예: "20px", "10%" 등)
+                    : `${((currentStep - 1) / (surveyData.length - 1)) * 100}%` }}
+            ></div>
         </div>
 
+        {surveyData.map((data) => (
+        <div key={data.step} className="z-10 bg-white rounded-full">
+            {currentStep >= data.step ? (
+            // 활성화된 스텝
+            <div className="w-[31px] h-[31px] bg-white rounded-full border-2 border-[#B9CCFD] flex items-center justify-center transition-all">
+                <div className="w-[24px] h-[24px] rounded-full bg-[#B9CCFD] flex items-center justify-center transition-all text-[#0B1F57] text-[17px] font-semibold leading-[22px]">
+                    {data.step}
+                </div>
+            </div>
+            ) : (
+            // 아직 안 간 스텝 (선이 뚫고 보이지 않도록 31px 흰색 배경으로 감싸줌)
+            <div className="w-[31px] h-[31px] bg-white rounded-full flex items-center justify-center transition-all">
+                <div className="w-[9px] h-[9px] rounded-full bg-[#B9CCFD] transition-all"></div>
+            </div>
+            )}
+        </div>
+        ))}
+    </div>
+
+
         {/* 2. 질문 제목 영역 */}
-        <div className="px-6 mb-8 shrink-0">
+        <div className="pt-[60px] px-6 mb-8 shrink-0">
             <h1 className="text-2xl font-bold text-gray-900 leading-snug whitespace-pre-line">
             {currentData.title}
             </h1>
