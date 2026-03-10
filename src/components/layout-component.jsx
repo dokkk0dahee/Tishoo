@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Navigation from "./Navigation";
-import Header from "./Header";
+import Navigation from "./navigation-component";
+import Header from "./header-componentr";
 
 const Layout = () => {
     return (
