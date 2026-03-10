@@ -144,7 +144,7 @@ const Onboarding = () => {
         } else {
             // 마지막 단계일 때
             console.log("최종 선택된 Tishoo 견적 데이터:", answers);
-            // navigate("/result"); // 결과 페이지로 이동
+            navigate("/") // 홈으로 이동
         }
     };
 
