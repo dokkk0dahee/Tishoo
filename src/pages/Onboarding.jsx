@@ -98,13 +98,17 @@ const Onboarding = () => {
 
     // 다음 버튼
     const handleNext = () => {
+        // 🚨 방어 로직 추가: 현재 스텝에서 선택한 항목이 하나도 없다면?
+        if (answers[currentData.id].length === 0) {
+            return; // 여기서 함수를 종료시켜서 다음 스텝으로 넘어가지 못하게 막습니다.
+        }
+
         if (currentStep < surveyData.length) {
-        setCurrentStep(prev => prev + 1);
+            setCurrentStep(prev => prev + 1);
         } else {
-        // 마지막 단계일 때
-        console.log("최종 선택된 Tishoo 견적 데이터:", answers);
-        alert("설문이 완료되었습니다! 결과 페이지로 이동합니다.");
-        // navigate("/result"); // 결과 페이지로 이동
+            // 마지막 단계일 때
+            console.log("최종 선택된 Tishoo 견적 데이터:", answers);
+            // navigate("/result"); // 결과 페이지로 이동
         }
     };
 
@@ -116,6 +120,8 @@ const Onboarding = () => {
         setCurrentStep(prev => prev - 1);
         }
     };
+
+    const isNextEnabled = answers[currentData.id].length > 0; // 현재 스텝에서 하나라도 선택했는지 여부 
 
     return (
         <div className="flex flex-col h-full relative">
@@ -166,7 +172,7 @@ const Onboarding = () => {
         </div>
 
         {/* 3. 선택지 리스트 영역 */}
-        <div className="flex-1 overflow-y-auto flex flex-col gap-[6px]">
+        <div className="flex flex-col gap-[6px]">
             {currentData.options.map((option, idx) => {
             // 현재 그려지는 옵션이 선택된 배열에 들어있는지 확인
             const isSelected = answers[currentData.id].includes(option);
@@ -188,18 +194,21 @@ const Onboarding = () => {
         </div> 
 
         {/* 4. 하단 고정 버튼 영역 */}
-        <div className="absolute bottom-0 left-0 w-full bg-white p-4 flex gap-3 border-t z-20">
+        <div className="flex-1 flex mt-[16px] w-full gap-[10px] z-20">
             <button 
             onClick={handlePrev} 
-            className="flex-1 bg-blue-200 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-300 transition-colors"
-            >
-            이전
+            className="flex-1 bg-[#B9CCFD] h-[42px] text-[#FBFBFB] rounded-[8px] border-[#E3E6F0] font-semibold text-[14px] transition-colors"
+            > 이전
             </button>
             <button 
             onClick={handleNext} 
-            className="flex-[2] bg-[#0A2472] text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-900 transition-colors shadow-lg"
-            >
-            {currentStep === surveyData.length ? "결과 보기" : "다음"}
+            disabled={!isNextEnabled} // 선택이 없으면 버튼 비활성화
+            className={`flex-1 h-[42px] rounded-[8px] font-semibold text-[14px] transition-all duration-300 ${
+                isNextEnabled 
+                      ? "bg-[#0A2472] text-[#FBFBFB] cursor-pointer" // 선택했을 때 (파란 불 켜짐)
+                      : "bg-[#E9EFFE] text-[#3E63A8] cursor-not-allowed" // 선택 안 했을 때 (회색 비활성화)
+            }`}>
+            {currentStep === surveyData.length ? "확인" : "다음"}
             </button>
         </div>
 
