@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Page1";
 import Community from "./pages/Page2";
 import Profile from "./pages/Page3"; 
+import Onboarding from "./pages/Onboarding";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/page1" element={<Search />} />
           <Route path="/page2" element={<Community />} />
           <Route path="/page3" element={<Profile />} />
+          <Route path="/onboarding" element={<Onboarding />} />
         </Route>
       </Routes>
     </BrowserRouter>
