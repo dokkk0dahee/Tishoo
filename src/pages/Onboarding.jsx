@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Dropdown from "../components/common/dropdown-component";
+
+const regionData = {
+    "서울": ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"],
+    "경기/인천": ["수원시", "성남시", "용인시", "고양시", "인천 중구", "인천 연수구"],
+    "강원": ["춘천시", "원주시", "강릉시"],
+    "충청/대전": ["대전 서구", "대전 유성구", "천안시", "청주시"],
+    "기타 지역": ["부산", "대구", "광주", "제주"]
+};
 
 const surveyData = [
     {
@@ -33,7 +42,7 @@ const surveyData = [
         step: 3,
         id: "region",
         title: "원하시는 장례 지역을\n선택해주세요.",
-        subtitle: "*단일 선택",
+        subtitle: null,
         isMulti: false,
         options: [
         "서울",
@@ -96,6 +105,33 @@ const Onboarding = () => {
         });
     };
 
+    // 현재 열려있는 드롭다운이 무엇인지 상태로 관리 (null, 'city', 'district' 중 하나)
+    const [openDropdown, setOpenDropdown] = useState(null);
+
+    // 지역 드롭다운 핸들러 (시/도 변경) - e.target.value 대신 직접 값을 받습니다.
+    const handleCitySelect = (selectedCity) => {
+        // 시/도가 바뀌면 구/시/군은 초기화해야 하므로 배열을 [selectedCity] 로 덮어씌움
+        setAnswers(prev => ({ ...prev, region: [selectedCity] }));
+        setOpenDropdown(null); // 선택을 마쳤으니 드롭다운 창을 닫아줍니다.
+    };
+
+    // 지역 드롭다운 핸들러 (구/시/군 변경)
+    const handleDistrictSelect = (selectedDistrict) => {
+        // 기존 시/도는 유지하고 두 번째 요소로 구/시/군 추가
+        setAnswers(prev => ({ ...prev, region: [prev.region[0], selectedDistrict] }));
+        setOpenDropdown(null); // 선택을 마쳤으니 드롭다운 창을 닫아줍니다.
+    };
+
+    // 다음 버튼 활성화 조건 로직 분리
+    let isNextEnabled = false;
+    if (currentData.id === "region") {
+        // 3단계(지역)일 때는 시/도와 구/시/군 2개가 모두 배열에 존재해야 활성화
+        isNextEnabled = answers.region.length === 2 && answers.region[0] && answers.region[1];
+    } else {
+        // 나머지 버튼형 단계는 1개라도 고르면 활성화
+        isNextEnabled = answers[currentData.id].length > 0;
+    }
+
     // 다음 버튼
     const handleNext = () => {
         // 🚨 방어 로직 추가: 현재 스텝에서 선택한 항목이 하나도 없다면?
@@ -121,8 +157,6 @@ const Onboarding = () => {
         }
     };
 
-    const isNextEnabled = answers[currentData.id].length > 0; // 현재 스텝에서 하나라도 선택했는지 여부 
-
     return (
         <div className="flex flex-col h-full relative">
         
@@ -138,7 +172,7 @@ const Onboarding = () => {
             <div 
                 className="absolute top-0 left-0 h-full border-t-[1.5px] border-solid border-[#B9CCFD] transition-all duration-500 ease-in-out"
                 style={{ width: currentStep === 1 
-                    ? "15%" // 👈 1단계일 때 선이 얼마나 나갈지 여기서 직접 조절하세요! (예: "20px", "10%" 등)
+                    ? "15%" // 1단계일 때 선이 얼마나 나갈지 여기서 직접 조절하세요! (예: "20px", "10%" 등)
                     : `${((currentStep - 1) / (surveyData.length - 1)) * 100}%` }}
             ></div>
         </div>
@@ -173,25 +207,57 @@ const Onboarding = () => {
 
         {/* 3. 선택지 리스트 영역 */}
         <div className="flex flex-col gap-[6px]">
-            {currentData.options.map((option, idx) => {
-            // 현재 그려지는 옵션이 선택된 배열에 들어있는지 확인
-            const isSelected = answers[currentData.id].includes(option);
-            
-            return (
-                <button
-                key={idx}
-                onClick={() => toggleOption(option)}
-                className={`w-full h-[42px] px-[14px] text-left rounded-[8px] border-[1px] transition-all duration-200 ${
-                    isSelected
-                    ? "border-[#E3E6F0] bg-[#E9EFFE] text-[#08173E] text-[14px] font-semibold"
-                    : "border-[#E3E6F0] bg-[#F5F5F5] text-[#8E8E93] text-[14px] font-semibold"
-                }`}
-                >
-                {option}
-                </button>
-            );
-            })}
-        </div> 
+            {/* 🌟 3단계: 지역 드롭다운 UI */}
+            {currentData.id === "region" ? (
+                <div>
+                    <div className="flex gap-[10px]"> {/* 시/도 선택 */}
+                        {/* 1. 시/도 드롭다운 */}
+                            <Dropdown 
+                                value={answers.region[0]}
+                                options={Object.keys(regionData)} // "서울", "경기/인천" 등 배열 전달
+                                placeholder="시/도"
+                                onSelect={handleCitySelect}
+                                isOpen={openDropdown === 'city'}
+                                onToggle={() => setOpenDropdown(openDropdown === 'city' ? null : 'city')}
+                            />
+
+                            {/* 2. 구/시/군 드롭다운 */}
+                            <Dropdown 
+                                value={answers.region[1]}
+                                options={answers.region[0] ? regionData[answers.region[0]] : []} // 선택된 시/도에 맞는 배열 전달
+                                placeholder="구/시/군"
+                                onSelect={handleDistrictSelect}
+                                disabled={!answers.region[0]} // 시/도를 안 골랐으면 굳게 잠가둠
+                                isOpen={openDropdown === 'district'}
+                                onToggle={() => setOpenDropdown(openDropdown === 'district' ? null : 'district')}
+                            />
+                    </div>
+                    
+                    {/* 지역 미선택 시 경고 텍스트 */}
+                    {!isNextEnabled && (
+                        <p className="text-[#FF6060] text-[12px] font-mediummt-[6px]">지역을 선택해주세요.</p>
+                    )}
+                </div>
+            ) : (
+                // 🌟 1, 2, 4단계: 기존 버튼형 UI
+                currentData.options.map((option, idx) => {
+                    const isSelected = answers[currentData.id].includes(option);
+                    return (
+                        <button
+                            key={idx}
+                            onClick={() => toggleOption(option)}
+                            className={`w-full h-[42px] px-[14px] text-left rounded-[8px] border-[1px] transition-all duration-200 ${
+                                isSelected
+                                ? "border-[#E3E6F0] bg-[#E9EFFE] text-[#08173E] text-[14px] font-semibold"
+                                : "border-[#E3E6F0] bg-[#F5F5F5] text-[#8E8E93] text-[14px] font-semibold"
+                            }`}
+                        >
+                            {option}
+                        </button>
+                    );
+                })
+            )}
+        </div>
 
         {/* 4. 하단 고정 버튼 영역 */}
         <div className="flex-1 flex mt-[16px] w-full gap-[10px] z-20">
