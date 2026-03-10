@@ -158,15 +158,15 @@ const Onboarding = () => {
 
 
         {/* 2. 질문 제목 영역 */}
-        <div className="pt-[60px] px-6 mb-8 shrink-0">
-            <h1 className="text-2xl font-bold text-gray-900 leading-snug whitespace-pre-line">
+        <div className="mt-[60px] shrink-0">
+            <h4 className="text-[20px] font-bold text-[#0B1F57] leading-[28px] whitespace-pre-line">
             {currentData.title}
-            </h1>
-            <p className="text-sm text-gray-500 mt-2">{currentData.subtitle}</p>
+            </h4>
+            <p className="text-[12px] text-black mb-[20px]">{currentData.subtitle}</p>
         </div>
 
         {/* 3. 선택지 리스트 영역 */}
-        <div className="flex-1 overflow-y-auto px-6 pb-24 flex flex-col gap-3">
+        <div className="flex-1 overflow-y-auto flex flex-col gap-[6px]">
             {currentData.options.map((option, idx) => {
             // 현재 그려지는 옵션이 선택된 배열에 들어있는지 확인
             const isSelected = answers[currentData.id].includes(option);
@@ -175,17 +175,17 @@ const Onboarding = () => {
                 <button
                 key={idx}
                 onClick={() => toggleOption(option)}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 ${
+                className={`w-full h-[42px] px-[14px] text-left rounded-[8px] border-[1px] transition-all duration-200 ${
                     isSelected
-                    ? "border-[#0A2472] bg-blue-50 text-[#0A2472] font-semibold"
-                    : "border-gray-100 bg-gray-50 text-gray-600 hover:bg-gray-100"
+                    ? "border-[#E3E6F0] bg-[#E9EFFE] text-[#08173E] text-[14px] font-semibold"
+                    : "border-[#E3E6F0] bg-[#F5F5F5] text-[#8E8E93] text-[14px] font-semibold"
                 }`}
                 >
                 {option}
                 </button>
             );
             })}
-        </div>
+        </div> 
 
         {/* 4. 하단 고정 버튼 영역 */}
         <div className="absolute bottom-0 left-0 w-full bg-white p-4 flex gap-3 border-t z-20">
