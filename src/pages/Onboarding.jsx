@@ -289,30 +289,29 @@ const Onboarding = () => {
 
         {/* 5. 취소 확인 모달 (isModalOpen이 true일 때만 렌더링) */}
         {isModalOpen && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm px-6">
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-6">
                 {/* 모달 하얀색 박스 */}
-                <div className="bg-white w-full max-w-[320px] rounded-[16px] p-6 text-center shadow-xl animate-fade-in-up">
-                    <h3 className="text-[18px] font-bold text-[#0B1F57] mb-2">
-                        설문 취소
+                <div className="bg-white w-[85%] rounded-[10px] p-[16px] text-left border-[1px] border-[#E3E6F0] animate-fade-in-up">
+                    <h3 className="text-[15px] font-semibold text-black mb-[8px] line-height-[21px]">
+                        여기서 멈추시겠어요?
                     </h3>
-                    <p className="text-[14px] text-[#8E8E93] mb-6 leading-relaxed">
-                        정말로 취소하시겠습니까?<br/>
-                        지금까지 선택한 내용은 저장되지 않습니다.
+                    <p className="text-[12px] text-black mb-[20px] letter-spacing-[-0.12px]">
+                        아직 완료되지 않은 단계가 남아있습니다.
                     </p>
                     
                     {/* 모달 하단 버튼 2개 */}
                     <div className="flex gap-[10px]">
                         <button 
-                            onClick={() => setIsModalOpen(false)} // 아니오 누르면 창만 닫기
-                            className="flex-1 h-[42px] bg-[#F5F5F5] text-[#8E8E93] rounded-[8px] font-semibold text-[14px]"
+                            onClick={confirmCancel} // 예 누르면 홈으로 이동
+                            className="flex-1 h-[42px] bg-[#F5F5F5] border-[1px] border-[#E3E6F0] text-[#8E8E93] rounded-[8px] font-semibold text-[14px]"
                         >
-                            계속하기
+                            나가기
                         </button>
                         <button 
-                            onClick={confirmCancel} // 예 누르면 홈으로 이동
-                            className="flex-1 h-[42px] bg-[#0A2472] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
+                            onClick={() => setIsModalOpen(false)} // 아니오 누르면 창만 닫기
+                            className="flex-1 h-[42px] bg-[#0A2472] border-[1px] border-[#E3E6F0] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
                         >
-                            네, 취소합니다
+                            계속하기
                         </button>
                     </div>
                 </div>
