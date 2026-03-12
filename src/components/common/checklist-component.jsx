@@ -43,28 +43,28 @@ const Checklist = () => {
     return (
         <div>
             {/* 타이틀 및 추가하기 버튼 */}
-            <div className="flex justify-between items-center mb-[12px]">
-                <h6 className="text-[16px] font-bold text-[#0B1F57]">
+            <div className="flex justify-between items-center mb-[16px]">
+                <h6 className="text-[16px] font-bold text-[#0B1F57] line-height-[22px]">
                     상주 체크리스트
                 </h6>
-                <button className="flex items-center gap-[4px] text-[#4568D2] text-[14px] font-semibold">
-                    <div className="w-[18px] h-[18px] bg-[#4568D2] text-white rounded-[4px] flex items-center justify-center text-[12px]">
+                <button className="flex items-center gap-[4px] text-[#4568D2] text-[14px] font-medium">
+                    <div className="w-[18.75px] h-[18.75px] bg-[#3E63A8] text-white rounded-[2.5px] flex items-center justify-center pb-[3px] text-[20px]">
                         +
                     </div>
-                    추가하기
+                    추가하기 
                 </button>
             </div>
 
             {/* 체크리스트 카드 영역 */}
-            <div className="border-[1px] border-[#E3E6F0] rounded-[12px] p-[20px] shadow-sm bg-white">
+            <div className="border-[1px] border-[#E3E6F0] rounded-[12px] px-[20px] py-[12px] shadow-sm bg-white">
                 {checklist.map((item, index) => (
                     <div key={item.id}>
                         {/* 메인 리스트 아이템 */}
-                        <div className={`flex items-start gap-[12px] py-[14px] ${index !== 0 ? "border-t-[1px] border-[#F0F2F5]" : "pt-0"}`}>
+                        <div className={`flex items-start gap-[12px] py-[12px] ${index !== 0 ? "border-t-[1px] border-[#E3E6F0]" : "pt-0"}`}>
                             <button 
                                 onClick={() => toggleCheck(item.id)}
-                                className={`w-[22px] h-[22px] mt-[2px] rounded-[4px] flex-shrink-0 flex items-center justify-center transition-colors border-[1.5px] ${
-                                    item.checked ? "bg-[#4568D2] border-[#4568D2]" : "bg-white border-[#C5C5C5]"
+                                className={`w-[18px] h-[18px] mt-[1px] rounded-[4px] flex-shrink-0 flex items-center justify-center transition-colors border-[1.5px] ${
+                                    item.checked ? "bg-[#3E63A8] border-[#3E63A8]" : "bg-white border-[#8E8E93] border-[1.5px]"
                                 }`}
                             >
                                 {item.checked && (
@@ -74,11 +74,11 @@ const Checklist = () => {
                                 )}
                             </button>
                             <div className="flex flex-col">
-                                <span className="text-[15px] font-medium text-[#111111] leading-[22px]">
+                                <span className="text-[14px] font-medium text-black leading-[20px]">
                                     {item.text}
                                 </span>
                                 {item.subtext && (
-                                    <span className="text-[13px] text-[#4568D2] mt-[2px]">
+                                    <span className="text-[12px] text-[#3E63A8]">
                                         {item.subtext}
                                     </span>
                                 )}
@@ -87,13 +87,13 @@ const Checklist = () => {
 
                         {/* 서브 리스트 아이템 */}
                         {item.subItems && (
-                            <div className="pl-[34px] flex flex-col gap-[10px] pb-[14px]">
+                            <div className="pl-[34px] flex flex-col gap-[10px] pb-[12px]">
                                 {item.subItems.map(subItem => (
                                     <div key={subItem.id} className="flex items-center gap-[10px]">
                                         <button 
                                             onClick={() => toggleSubCheck(item.id, subItem.id)}
-                                            className={`w-[18px] h-[18px] rounded-[3px] flex-shrink-0 flex items-center justify-center transition-colors border-[1.5px] ${
-                                                subItem.checked ? "bg-[#4568D2] border-[#4568D2]" : "bg-white border-[#C5C5C5]"
+                                            className={`w-[16px] h-[16px] rounded-[4px] flex-shrink-0 flex items-center justify-center transition-colors border-[1.5px] ${
+                                                subItem.checked ? "bg-[#3E63A8] border-[#3E63A8]" : "bg-white border-[#8E8E93] border-[1.5px]"
                                             }`}
                                         >
                                             {subItem.checked && (
@@ -102,7 +102,7 @@ const Checklist = () => {
                                                 </svg>
                                             )}
                                         </button>
-                                        <span className="text-[14px] font-medium text-[#111111]">
+                                        <span className="text-[12px] font-medium text-black">
                                             {subItem.text}
                                         </span>
                                     </div>
