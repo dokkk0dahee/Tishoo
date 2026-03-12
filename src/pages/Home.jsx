@@ -20,19 +20,17 @@ const Home = () => {
     };
 
     return (
-    <div className="flex flex-col h-full mt-[30px]"> 
-        {/* 로고나 상단 헤더가 있다면 여기에 위치 */}
-
+    <div className="flex flex-col h-full mt-[15px]"> 
         {/* 조건부 렌더링: 설문 데이터가 있을 때 */}
         {surveyData ? (
-            <div className="flex flex-col gap-[32px]">
+            <div className="flex flex-col gap-[36px]">
                 
                 {/* 1. 장례 정보 입력 섹션 */}
                 <div>
-                    <h6 className="text-[16px] font-bold text-[#0B1F57] mb-[12px]">
+                    <h6 className="text-[16px] font-bold text-[#0B1F57] mb-[16px]">
                         장례 정보 입력
                     </h6>
-                    <button className="w-full h-[48px] bg-[#F8F9FA] border-[1px] border-[#E3E6F0] rounded-[8px] flex items-center justify-center text-[#8E8E93] text-[14px] font-medium transition-colors hover:bg-gray-100">
+                    <button className="w-full h-[37px] bg-[#F5F5F5] border-[1px] border-[#E3E6F0] rounded-[8px] flex items-center justify-center text-[#8E8E93] text-[14px] font-semibold transition-colors line-height-[20px]">
                         <span className="text-[18px] mr-1 font-light">+</span> 정보 추가
                     </button>
                 </div>
@@ -42,7 +40,7 @@ const Home = () => {
             </div>
         ) : (
             <div>
-                <h6 className="text-[16px] font-bold text-[#0B1F57] leading-[22px] mb-[12px]">
+                <h6 className="text-[16px] font-bold text-[#0B1F57] leading-[22px] mt-[15px] mb-[12px]">
                     장례준비, 무엇부터 해야 할까요?
                 </h6>
                 <button 
