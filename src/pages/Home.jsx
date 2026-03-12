@@ -1,20 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Checklist from "../components/common/checklist-component";
 
 
 const Home = () => {
     const navigate = useNavigate();
-    const [surveyData, setSurveyData] = useState(null);  // 설문 데이터 상태
+    // 설문 데이터 상태
+    const [surveyData, setSurveyData] = useState(() => {
+        const savedData = localStorage.getItem("tishoo_user_data");
+        return savedData ? JSON.parse(savedData) : null;
+    });
 
     // 화면이 렌더링될 때 로컬 스토리지에서 설문 데이터가 있는지 확인
-    useEffect(() => {
-        const savedData = localStorage.getItem("tishoo_user_data");
-        if (savedData) {
-            setSurveyData(JSON.parse(savedData));
-        }
-    }, []);
-
     const handleButtonClick = () => {
         navigate("/onboarding");
     };
