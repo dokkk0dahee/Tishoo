@@ -151,10 +151,19 @@ const Onboarding = () => {
     // 이전 버튼
     const handlePrev = () => {
         if (currentStep === 1) {
-        navigate(-1); // 1단계면 이전 페이지로 이탈
+            setIsModalOpen(true); // 바로 나가지 않고 모달창을 엽니다!
         } else {
-        setCurrentStep(prev => prev - 1);
+            setCurrentStep(prev => prev - 1);
         }
+    };
+
+    // 취소 모달창 표시 여부 상태
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // 모달창에서 '예(취소)'를 눌렀을 때 실행될 함수
+    const confirmCancel = () => {
+        setIsModalOpen(false);
+        navigate("/"); // 홈 화면으로 완전히 이동 (또는 원하시는 경로)
     };
 
     return (
@@ -277,6 +286,38 @@ const Onboarding = () => {
             {currentStep === surveyData.length ? "확인" : "다음"}
             </button>
         </div>
+
+        {/* 5. 취소 확인 모달 (isModalOpen이 true일 때만 렌더링) */}
+        {isModalOpen && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm px-6">
+                {/* 모달 하얀색 박스 */}
+                <div className="bg-white w-full max-w-[320px] rounded-[16px] p-6 text-center shadow-xl animate-fade-in-up">
+                    <h3 className="text-[18px] font-bold text-[#0B1F57] mb-2">
+                        설문 취소
+                    </h3>
+                    <p className="text-[14px] text-[#8E8E93] mb-6 leading-relaxed">
+                        정말로 취소하시겠습니까?<br/>
+                        지금까지 선택한 내용은 저장되지 않습니다.
+                    </p>
+                    
+                    {/* 모달 하단 버튼 2개 */}
+                    <div className="flex gap-[10px]">
+                        <button 
+                            onClick={() => setIsModalOpen(false)} // 아니오 누르면 창만 닫기
+                            className="flex-1 h-[42px] bg-[#F5F5F5] text-[#8E8E93] rounded-[8px] font-semibold text-[14px]"
+                        >
+                            계속하기
+                        </button>
+                        <button 
+                            onClick={confirmCancel} // 예 누르면 홈으로 이동
+                            className="flex-1 h-[42px] bg-[#0A2472] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
+                        >
+                            네, 취소합니다
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
 
         </div>
     );
