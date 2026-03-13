@@ -25,7 +25,7 @@ const Navigation = () => {
             <PriceIcon size={27} />
             <span className="text-[12px]">가격비교</span>
         </Link>
-        <Link to="/page3" className={`flex flex-col items-center ${getActiveClass("/page4")}`}>
+        <Link to="/page3" className={`flex flex-col items-center ${getActiveClass("/page3")}`}>
             <MypageIcon size={27} />
             <span className="text-[12px]">마이페이지</span>
         </Link>
