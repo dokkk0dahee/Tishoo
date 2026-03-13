@@ -9,7 +9,10 @@ const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const isHomePage = location.pathname === "/"; // 홈 페이지인지 체크
+    // 메인 탭에 해당하는 경로들
+    const mainTabPaths = ["/", "/page1", "/page2", "/page3"];
+
+    const isMainTab = mainTabPaths.includes(location.pathname); // 메인 탭인지 체크
     const [isOpen, setIsOpen] = useState(false); // 메뉴 열림 상태 자체 관리
 
     return (
@@ -18,7 +21,7 @@ const Header = () => {
         <header className="h-14 flex items-center bg-white justify-between px-[20px] py-[10px] border-[1px] border-[#E3E6F0] sticky top-0 z-30 shrink-0">
             {/* 뒤로가기 버튼과 로고 */}
             <div className="flex items-center">
-                {isHomePage ? (
+                {isMainTab ? (
                     <div className="font-bold text-lg tracking-wider">로고</div>
                 ) : (
                     <button onClick={() => navigate(-1)} className="focus:outline-none">
