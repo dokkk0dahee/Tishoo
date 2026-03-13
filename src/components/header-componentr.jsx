@@ -7,17 +7,17 @@ const Header = () => {
     return (
     <>
         {/* 상단 고정 헤더 영역 */}
-        <header className="h-14 flex items-center justify-between px-4 border-b bg-white sticky top-0 z-30 shrink-0">
-            <div className="font-bold text-lg tracking-wider">TISHOO</div>
+        <header className="h-14 flex items-center justify-between px-[20px] py-[10px] border-[1px] border-[#E3E6F0] sticky top-0 z-30 shrink-0">
+            <div className="font-bold text-lg tracking-wider">로고</div>
             
             {/* 햄버거 버튼 */}
             <button 
             onClick={() => setIsOpen(true)} 
-            className="p-2 space-y-1.5 focus:outline-none z-40"
+            className="space-y-1 focus:outline-none z-40"
             >
-            <div className="w-6 h-0.5 bg-black"></div>
-            <div className="w-6 h-0.5 bg-black"></div>
-            <div className="w-6 h-0.5 bg-black"></div>
+            <div className="w-[21px] h-0.5 bg-black"></div>
+            <div className="w-[21px] h-0.5 bg-black"></div>
+            <div className="w-[21px]  h-0.5 bg-black"></div>
             </button>
         </header>
 
