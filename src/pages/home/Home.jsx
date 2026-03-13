@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Checklist from "../components/common/checklist-component";
-import GuideSection from "../components/common/guidesection-component";
+import Checklist from "../../components/common/checklist-component";
+import GuideSection from "../../components/common/guidesection-component";
 
 const Home = () => {
     const navigate = useNavigate();
