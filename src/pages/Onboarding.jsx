@@ -144,6 +144,7 @@ const Onboarding = () => {
         } else {
             // 마지막 단계일 때
             console.log("최종 선택된 Tishoo 견적 데이터:", answers);
+            localStorage.setItem("tishoo_user_data", JSON.stringify(answers));
             navigate("/") // 홈으로 이동
         }
     };
@@ -151,10 +152,19 @@ const Onboarding = () => {
     // 이전 버튼
     const handlePrev = () => {
         if (currentStep === 1) {
-        navigate(-1); // 1단계면 이전 페이지로 이탈
+            setIsModalOpen(true); // 바로 나가지 않고 모달창을 엽니다!
         } else {
-        setCurrentStep(prev => prev - 1);
+            setCurrentStep(prev => prev - 1);
         }
+    };
+
+    // 취소 모달창 표시 여부 상태
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // 모달창에서 '예(취소)'를 눌렀을 때 실행될 함수
+    const confirmCancel = () => {
+        setIsModalOpen(false);
+        navigate("/"); // 홈 화면으로 완전히 이동 (또는 원하시는 경로)
     };
 
     return (
@@ -277,6 +287,37 @@ const Onboarding = () => {
             {currentStep === surveyData.length ? "확인" : "다음"}
             </button>
         </div>
+
+        {/* 5. 취소 확인 모달 (isModalOpen이 true일 때만 렌더링) */}
+        {isModalOpen && (
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-6">
+                {/* 모달 하얀색 박스 */}
+                <div className="bg-white w-[85%] rounded-[10px] p-[16px] text-left border-[1px] border-[#E3E6F0] animate-fade-in-up">
+                    <h3 className="text-[15px] font-semibold text-black mb-[8px] line-height-[21px]">
+                        여기서 멈추시겠어요?
+                    </h3>
+                    <p className="text-[12px] text-black mb-[20px] letter-spacing-[-0.12px]">
+                        아직 완료되지 않은 단계가 남아있습니다.
+                    </p>
+                    
+                    {/* 모달 하단 버튼 2개 */}
+                    <div className="flex gap-[10px]">
+                        <button 
+                            onClick={confirmCancel} // 예 누르면 홈으로 이동
+                            className="flex-1 h-[42px] bg-[#F5F5F5] border-[1px] border-[#E3E6F0] text-[#8E8E93] rounded-[8px] font-semibold text-[14px]"
+                        >
+                            나가기
+                        </button>
+                        <button 
+                            onClick={() => setIsModalOpen(false)} // 아니오 누르면 창만 닫기
+                            className="flex-1 h-[42px] bg-[#0A2472] border-[1px] border-[#E3E6F0] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
+                        >
+                            계속하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
 
         </div>
     );
