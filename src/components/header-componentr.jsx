@@ -10,7 +10,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     // 메인 탭에 해당하는 경로들
-    const mainTabPaths = ["/", "/page1", "/page2", "/page3"];
+    const mainTabPaths = ["/", "/reservation", "/compare", "/mypage"];
 
     const isMainTab = mainTabPaths.includes(location.pathname); // 메인 탭인지 체크
     const [isOpen, setIsOpen] = useState(false); // 메뉴 열림 상태 자체 관리

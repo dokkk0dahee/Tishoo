@@ -1,4 +1,4 @@
-const Search = () => {
+const Reservation = () => {
     return (
         <div className="p-5">
         <h1 className="text-2xl font-bold mb-6">정보 검색</h1>
@@ -25,4 +25,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export default Reservation;

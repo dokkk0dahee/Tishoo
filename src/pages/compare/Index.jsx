@@ -1,7 +1,7 @@
-const Community = () => {
+const Compare = () => {
     return (
         <div className="p-5">
-        <h1 className="text-2xl font-bold mb-6">커뮤니티</h1>
+        <h1 className="text-2xl font-bold mb-6">비교</h1>
         <div className="space-y-4">
             {[1, 2].map((i) => (
             <div key={i} className="p-4 bg-white border border-gray-100 rounded-2xl shadow-sm">
@@ -21,4 +21,4 @@ const Community = () => {
     );
 };
 
-export default Community;
+export default Compare;

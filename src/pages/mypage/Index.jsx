@@ -1,4 +1,4 @@
-const Profile = () => {
+const Mypage = () => {
     return (
         <div className="p-5 flex flex-col items-center">
         <div className="w-24 h-24 bg-gray-200 rounded-full mt-10 mb-4 flex items-center justify-center text-3xl">
@@ -18,4 +18,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Mypage;

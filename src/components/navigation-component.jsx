@@ -17,15 +17,15 @@ const Navigation = () => {
             <HomeIcon />
             <span className="text-[12px]">홈</span>
         </Link>
-        <Link to="/page1" className={`flex flex-col items-center ${getActiveClass("/page1")}`}>
+        <Link to="/reservation" className={`flex flex-col items-center ${getActiveClass("/reservation")}`}>
             <SearchIcon />
-            <span className="text-[12px]">빈소찾기</span>
+            <span className="text-[12px]">빈소예약</span>
         </Link>
-        <Link to="/page2" className={`flex flex-col items-center ${getActiveClass("/page2")}`}>
+        <Link to="/compare" className={`flex flex-col items-center ${getActiveClass("/compare")}`}>
             <PriceIcon size={27} />
             <span className="text-[12px]">가격비교</span>
         </Link>
-        <Link to="/page3" className={`flex flex-col items-center ${getActiveClass("/page3")}`}>
+        <Link to="/mypage" className={`flex flex-col items-center ${getActiveClass("/mypage")}`}>
             <MypageIcon size={27} />
             <span className="text-[12px]">마이페이지</span>
         </Link>
