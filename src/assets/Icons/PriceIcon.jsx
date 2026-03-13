@@ -1,24 +1,17 @@
 const PriceIcon = ({ className }) => {
     return (
         <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="27" 
-        height="27" 
-        viewBox="0 0 27 27" 
-        fill="none"
-        className={className}
+            xmlns="http://www.w3.org/2000/svg" 
+            width="27" 
+            height="27" 
+            viewBox="0 0 27 27" 
+            fill="none"
+            className={className}
         >
-        <g clipPath="url(#clip0_129_1497)">
             <path 
-            d="M5.625 10.35H9V21.375H5.625V10.35ZM11.925 5.625H15.075V21.375H11.925V5.625ZM18.225 14.625H21.375V21.375H18.225V14.625Z"
-            fill="currentColor"
+                d="M5.625 10.35H9V21.375H5.625V10.35ZM11.925 5.625H15.075V21.375H11.925V5.625ZM18.225 14.625H21.375V21.375H18.225V14.625Z"
+                fill="currentColor"
             />
-        </g>
-        <defs>
-            <clipPath id="clip0_129_1497">
-            <rect width="27" height="27" fill="white"/>
-            </clipPath>
-        </defs>
         </svg>
     );
 };
