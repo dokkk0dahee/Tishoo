@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import HomeIcon from "../assets/Icons/HomeIcon";
 import SearchIcon from "../assets/Icons/SearchIcon";
 import PriceIcon from "../assets/Icons/PriceIcon";
-import SecretaryIcon from "../assets/Icons/Secretary";
 import MypageIcon from "../assets/Icons/Mypage";
 
 const Navigation = () => {
@@ -26,11 +25,7 @@ const Navigation = () => {
             <PriceIcon size={27} />
             <span className="text-[12px]">가격비교</span>
         </Link>
-        <Link to="/page3" className={`flex flex-col items-center ${getActiveClass("/page3")}`}>
-            <SecretaryIcon size={27} />
-            <span className="text-[12px]">상주 비서</span>
-        </Link>
-        <Link to="/page4" className={`flex flex-col items-center ${getActiveClass("/page4")}`}>
+        <Link to="/page3" className={`flex flex-col items-center ${getActiveClass("/page4")}`}>
             <MypageIcon size={27} />
             <span className="text-[12px]">마이페이지</span>
         </Link>

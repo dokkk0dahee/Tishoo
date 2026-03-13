@@ -1,28 +1,53 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"; 
+import TelIcon from "../assets/Icons/TelIcon";
+import BackIcon from "../assets/Icons/BackIcon";
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    // 현재 주소 가져오고, 페이지 이동 함수
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // 메인 탭에 해당하는 경로들
+    const mainTabPaths = ["/", "/page1", "/page2", "/page3"];
+
+    const isMainTab = mainTabPaths.includes(location.pathname); // 메인 탭인지 체크
+    const [isOpen, setIsOpen] = useState(false); // 메뉴 열림 상태 자체 관리
 
     return (
     <>
         {/* 상단 고정 헤더 영역 */}
-        <header className="h-14 flex items-center justify-between px-4 border-b bg-white sticky top-0 z-30 shrink-0">
-            <div className="font-bold text-lg tracking-wider">TISHOO</div>
-            
-            {/* 햄버거 버튼 */}
-            <button 
-            onClick={() => setIsOpen(true)} 
-            className="p-2 space-y-1.5 focus:outline-none z-40"
-            >
-            <div className="w-6 h-0.5 bg-black"></div>
-            <div className="w-6 h-0.5 bg-black"></div>
-            <div className="w-6 h-0.5 bg-black"></div>
-            </button>
+        <header className="h-14 flex items-center bg-white justify-between px-[20px] py-[10px] border-[1px] border-[#E3E6F0] sticky top-0 z-30 shrink-0">
+            {/* 뒤로가기 버튼과 로고 */}
+            <div className="flex items-center">
+                {isMainTab ? (
+                    <div className="font-bold text-lg tracking-wider">로고</div>
+                ) : (
+                    <button onClick={() => navigate(-1)} className="focus:outline-none">
+                        <BackIcon className="inline-block mr-1" />
+                    </button>
+                )}
+            </div>
+
+            <div className="flex items-center gap-[12px]">
+                {/* 전화로 넘어가는 버튼 */}
+                <a href="tel:010-9663-8753" className="space-y-1 z-40">
+                    <TelIcon className="inline-block mr-1" />
+                </a>
+                {/* 햄버거 버튼 */}
+                <button 
+                    onClick={() => setIsOpen(true)} 
+                    className="space-y-1 focus:outline-none z-40">
+                    <div className="w-[21px] h-0.5 bg-black"></div>
+                    <div className="w-[21px] h-0.5 bg-black"></div>
+                    <div className="w-[21px]  h-0.5 bg-black"></div>
+                </button>
+            </div>
         </header>
 
         {/* 메뉴 전체를 감싸는 투명한 방어막*/}
-        <div className={`absolute inset-0 z-50 overflow-hidden transition-all duration-300 ${
+        <div className={`fixed inset-0 z-50 overflow-hidden transition-all duration-300 ${
             isOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"}`}>
             <div className="absolute inset-0 bg-black/20" //바깥 어두운 배경 (여기를 누르면 무조건 닫힘)
                 onClick={() => setIsOpen(false)} /> 
