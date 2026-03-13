@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout-component";
-import Home from "./pages/Home";
-import Search from "./pages/Page1";
-import Community from "./pages/Page2";
-import Profile from "./pages/Page3"; 
-import Onboarding from "./pages/Onboarding";
+import Home from "./pages/home/Home";
+import Search from "./pages/reservation/Page1";
+import Community from "./pages/compare/Page2";
+import Profile from "./pages/mypage/Page3"; 
+import Onboarding from "./pages/home/Onboarding";
 
 function App() {
   return (
