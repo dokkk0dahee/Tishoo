@@ -49,7 +49,7 @@ const GuideSection = () => {
                         className="bg-white border-[1px] border-[#E3E6F0] rounded-[12px] overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow flex flex-col"
                     >
                         {/* 1. 상단 이미지 영역 (현재는 임시 배경색으로 처리) */}
-                        <div className={`w-full h-[90px] ${guide.imgBg} relative flex items-center justify-center`}>
+                        <div className={`w-full h-[80px] ${guide.imgBg} relative flex items-center justify-center`}>
                             {/* 실제 이미지가 있다면 아래 태그를 사용하세요 */}
                             {/* <img src={guide.img} alt={guide.title} className="w-full h-full object-cover" /> */}
                             
@@ -58,7 +58,7 @@ const GuideSection = () => {
                         </div>
 
                         {/* 2. 하단 텍스트 영역 */}
-                        <div className="px-[7px] py-[5px] flex flex-col flex-1">
+                        <div className="h-[78px] px-[7px] py-[5px] flex flex-col flex-1">
                             <h3 className="text-[12px] font-semibold text-black mb-[3px]">
                                 {guide.title}
                             </h3>
