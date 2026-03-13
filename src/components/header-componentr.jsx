@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"; 
+import TellIcon from "../assets/Icons/TellIcon";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,15 +11,21 @@ const Header = () => {
         <header className="h-14 flex items-center justify-between px-[20px] py-[10px] border-[1px] border-[#E3E6F0] sticky top-0 z-30 shrink-0">
             <div className="font-bold text-lg tracking-wider">로고</div>
             
-            {/* 햄버거 버튼 */}
-            <button 
-            onClick={() => setIsOpen(true)} 
-            className="space-y-1 focus:outline-none z-40"
-            >
-            <div className="w-[21px] h-0.5 bg-black"></div>
-            <div className="w-[21px] h-0.5 bg-black"></div>
-            <div className="w-[21px]  h-0.5 bg-black"></div>
-            </button>
+            <div className="flex items-center gap-[12px]">
+                {/* 전화로 넘어가는 버튼 */}
+                <a href="tel:010-9663-8753" className="space-y-1 z-40">
+                    <TellIcon className="inline-block mr-1" />
+                </a>
+
+                {/* 햄버거 버튼 */}
+                <button 
+                    onClick={() => setIsOpen(true)} 
+                    className="space-y-1 focus:outline-none z-40">
+                    <div className="w-[21px] h-0.5 bg-black"></div>
+                    <div className="w-[21px] h-0.5 bg-black"></div>
+                    <div className="w-[21px]  h-0.5 bg-black"></div>
+                </button>
+            </div>
         </header>
 
         {/* 메뉴 전체를 감싸는 투명한 방어막*/}
