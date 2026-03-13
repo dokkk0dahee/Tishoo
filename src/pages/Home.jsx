@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Checklist from "../components/common/checklist-component";
-
+import GuideSection from "../components/common/guidesection-component";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -47,6 +47,12 @@ const Home = () => {
                 </button>
             </div>
         )}
+        <div>
+            <h6 className="text-[16px] font-bold text-[#0B1F57] leading-[22px] mt-[30px] mb-[12px]">
+                    상주가 처음이라면 읽어야할 필독 가이드
+            </h6> 
+            <GuideSection />
+        </div>
     </div>
     );
 };
