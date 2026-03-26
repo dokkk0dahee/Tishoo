@@ -41,7 +41,7 @@ const GuideSection = () => {
     return (
         <div className="mt-[12px]">
             {/* 카드 그리드 영역 (2열 배치) */}
-            <div className="grid grid-cols-2 gap-[14px]">
+            <div className="grid grid-cols-2 gap-[15px] px-[5px]">
                 {guideList.map((guide) => (
                     <div 
                         key={guide.id}
