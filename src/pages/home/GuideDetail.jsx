@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 // 🌟 데이터 구조를 디자인(카드형 UI)에 맞게 렌더링하기 쉽도록 배열+객체 형태로 개선했습니다.
 const guideDetails = {
@@ -85,6 +86,10 @@ const GuideDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+    
     const data = guideDetails[id] || guideDetails["consult"];
 
     return (
