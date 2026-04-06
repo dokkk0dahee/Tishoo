@@ -32,7 +32,7 @@ const guideDetails = {
         title: "[임종 직후 대처]",
         subtitle: "자택 vs 병원, 임종 장소에 따른 '사망진단서' 발급 안내",
         content: "가족을 떠나보낸 직후, 경황이 없으시겠지만 장례 절차를 시작하기 위해 가장 먼저 확보해야 하는 서류가 있습니다. 바로 '사망진단서(시체검안서)'입니다.",
-        stepsTitle: "주요 절차",
+        stepsTitle: "주요 상황",
         steps: [
             { title: "병원에서 임종하신 경우", desc: "가장 절차가 수월합니다. 병원에 계시던 주치의가 임종을 확인한 후 병원 원무과를 통해 '사망진단서'를 즉시 발급받을 수 있습니다." },
             { title: "자택에서 임종하신 경우 (자연사/노환)", desc: "절대 당황하지 마시고 119나 112에 먼저 신고하세요. 구급대원과 경찰이 도착하여 상황을 확인한 후, 가까운 응급실로 모시거나 의사를 모셔와 '시체검안서'를 발급받게 됩니다." },
@@ -66,7 +66,7 @@ const guideDetails = {
         title: "[장례 후 해야 할 일]",
         subtitle: "장례 후 한 달 내에 반드시 해야 할 행정 처리 3가지",
         content: "장례를 무사히 마쳤다는 안도감도 잠시, 유가족 앞에는 풀어야 할 행정 숙제들이 남아 있습니다. 기한을 놓치면 과태료가 나올 수 있으니 다음 세 가지는 꼭 기억해 주세요.",
-        stepsTitle: "주요 절차",
+        stepsTitle: "주요 목록",
         steps: [
             { title: "사망신고 (사망일로부터 1개월 이내)", desc: "고인의 주소지와 상관없이 전국 구청이나 동주민센터(행정복지센터)에서 신고할 수 있습니다. 사망진단서 원본과 신고자의 신분증을 꼭 지참하세요. (기한을 넘기면 최대 5만 원의 과태료가 부과됩니다.)" },
             { title: "안심상속 원스톱 서비스 신청", desc: "사망신고를 하러 가셨을 때 한 번에 신청하세요. 고인이 남기신 예금, 보험, 주식은 물론 혹시 모를 대출과 빚까지 전국 금융망을 통해 한 번에 조회해 주는 매우 유용한 국가 서비스입니다" },
@@ -89,41 +89,41 @@ const GuideDetail = () => {
 
     return (
         // pb-[100px]를 주어 하단 네비게이션 바에 콘텐츠가 가려지지 않도록 합니다.
-        <div className="flex flex-col h-full bg-[#F8F9FA] overflow-y-auto pb-[100px]">
-            
+        <div className="flex flex-col w-full h-full bg-[#F8F9FA] overflow-y-auto">
+    
             {/* 1. 상단 다크 네이비 배너 영역 */}
             <div className={`w-full pt-[40px] pb-[60px] ${data.imgBg} relative flex flex-col items-center justify-center px-6 text-center`}>
-                <h2 className="text-[22px] font-bold text-white z-10 mb-2 tracking-wide">{data.title}</h2>
-                <p className="text-[14px] text-[#A6AFC6] font-medium z-10">{data.subtitle}</p>
+                <h2 className="text-[22px] font-bold text-white z-10 mb-2 tracking-wide line-height-[31px] letter-spacing-[-0.044px]">{data.title}</h2>
+                <p className="text-[14px] text-white font-regular line-height-[22px] letter-spacing-[-0.28px]">{data.subtitle}</p>
             </div>
 
             {/* 2. 본문 내용 영역 (둥근 모서리로 배너를 덮는 효과) */}
             <div className="flex-1 bg-white rounded-t-[24px] -mt-[24px] p-[24px] z-20 relative shadow-sm">
                 
                 {/* 2-1. 안내 사항 */}
-                <div className="mb-8">
-                    <h3 className="text-[18px] font-bold text-[#4A3A31] mb-4">안내 사항</h3>
-                    <p className="text-[14px] text-[#666666] leading-[24px] break-keep">
+                <div className="mb-[30px]">
+                    <h3 className="text-[18px] font-bold text-[#331B0C] mb-[16px]">안내 사항</h3>
+                    <p className="text-[14px] font-regular text-[#8E8E93] leading-[20px] break-keep">
                         {data.content}
                     </p>
                 </div>
 
                 {/* 2-2. 주요 절차 (카드 UI) */}
-                <div className="mb-10">
-                    <h3 className="text-[18px] font-bold text-[#4A3A31] mb-4">{data.stepsTitle}</h3>
-                    <div className="flex flex-col gap-4">
+                <div className="mb-[30px]">
+                    <h3 className="text-[18px] font-bold text-[#331B0C] mb-[16px]">{data.stepsTitle}</h3>
+                    <div className="flex flex-col gap-[16px]">
                         {data.steps.map((step, index) => (
-                            <div key={index} className="border-[1px] border-[#F0F0F0] rounded-[12px] p-4 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                            <div key={index} className="w-full border-[1px] border-[#eee] rounded-[8px] p-[16px] bg-[#FBFBFB] shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
                                 <div className="flex items-center gap-[10px] mb-[8px]">
                                     {/* 숫자 동그라미 */}
-                                    <div className="w-[26px] h-[26px] rounded-full bg-[#F3EFEA] text-[#7A5A44] flex items-center justify-center text-[13px] font-bold shrink-0">
+                                    <div className="w-[30px] h-[30px] rounded-full border-[1px] border-[#eee] bg-[#EDDFCA] text-[#331B0C] flex items-center justify-center text-[14px] font-bold shrink-0">
                                         {index + 1}
                                     </div>
-                                    <h4 className="text-[15px] font-bold text-[#222222]">
+                                    <h4 className="text-[14px] font-regular text-[#331B0C] line-height-[20px]">
                                         {step.title}
                                     </h4>
                                 </div>
-                                <p className="text-[13px] text-[#666666] leading-[22px] break-keep pl-[36px]">
+                                <p className="text-[12px] text-[#331B0C] font-light leading-[20px] break-keep">
                                     {step.desc}
                                 </p>
                             </div>
@@ -133,14 +133,14 @@ const GuideDetail = () => {
 
                 {/* 2-3. 요약 Tips (데이터에 tips가 있을 때만 렌더링) */}
                 {data.tips && (
-                    <div>
-                        <h3 className="text-[18px] font-bold text-[#4A3A31] mb-3">{data.tips.title}</h3>
-                        <p className="text-[15px] font-bold text-[#8C7462] mb-3">
+                    <div className="pb-[30px]">
+                        <h3 className="text-[18px] font-bold text-[#331B0C] mb-[16px]">{data.tips.title}</h3>
+                        <p className="text-[14px] font-medium text-[#8C7462] mb-[16px] leading-[20px] break-keep">
                             {data.tips.question}
                         </p>
                         {/* 왼쪽 세로선(Border)이 있는 답변 영역 */}
-                        <div className="border-l-[2px] border-[#D9D0C7] pl-[14px] py-[4px]">
-                            <p className="text-[14px] text-[#555555] leading-[24px] break-keep">
+                        <div className="border-l-[1.5px] border-[#331B0C] pl-[16px] py-[4px]">
+                            <p className="text-[14px] font-regular text-[#331B0C] leading-[20px] break-keep">
                                 {data.tips.answer}
                             </p>
                         </div>
