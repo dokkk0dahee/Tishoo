@@ -88,8 +88,7 @@ const GuideDetail = () => {
     const data = guideDetails[id] || guideDetails["consult"];
 
     return (
-        // pb-[100px]를 주어 하단 네비게이션 바에 콘텐츠가 가려지지 않도록 합니다.
-        <div className="flex flex-col w-full h-full bg-[#F8F9FA] overflow-y-auto">
+        <div className="flex flex-col w-screen h-full bg-[#F8F9FA] overflow-y-auto mx-[-16px] my-[-16px]">
     
             {/* 1. 상단 다크 네이비 배너 영역 */}
             <div className={`w-full pt-[40px] pb-[60px] ${data.imgBg} relative flex flex-col items-center justify-center px-6 text-center`}>
