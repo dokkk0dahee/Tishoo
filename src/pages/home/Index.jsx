@@ -65,7 +65,7 @@ const Home = () => {
                     장례준비, 무엇부터 해야 할까요?
                 </h6>
                 <button 
-                    className="flex items-center justify-center w-full h-[64px] bg-[#EDDFCA] rounded-[8px] border-[1px] border-[#E3E6F0] text-[#0A2472] text-[14px] font-semibold gap-[8px]"
+                    className="flex items-center justify-center w-full h-[64px] bg-[#EDDFCA] rounded-[8px] border-[1px] border-[#E3E6F0] text-[#331B0C] text-[14px] font-semibold gap-[8px]"
                     onClick={handleButtonClick}
                 > <GuideIcon /> 단계별 안내 받으러 가기 <NextIcon/>
                 </button>
