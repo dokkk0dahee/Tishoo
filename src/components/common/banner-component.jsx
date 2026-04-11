@@ -32,7 +32,7 @@ const bannerData = [
 
 const Banner = () => {
     return (
-        <div className="flex-col w-screen bg-[#F8F9FA] overflow-x-hidden">
+        <div className="flex-col w-full overflow-x-hidden">
             <div className="w-full bg-white">
                 <div className="flex overflow-x-auto snap-x snap-mandatory gap-[12px] [&::-webkit-scrollbar]:hidden">
                     {bannerData.map((banner, index) => (
@@ -42,15 +42,16 @@ const Banner = () => {
                             className={`shrink-0 w-[90%] h-[120px] rounded-[8px] p-[16px] flex flex-col justify-center relative snap-center shadow-md`}
                         style={{
                                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner.imageUrl})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
+                                backgroundSize: '100% 100%',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat'
                             }}>
                             {/* 배너 텍스트 */}
                             <h2 className="text-white text-[17px] font-medium leading-[24px] break-keep whitespace-pre-line z-10">
                                 {banner.title}
                             </h2>
                             
-                            {/* 부고장/인사말 액션 텍스트 */}
+                            {/* 액션 텍스트 */}
                             {banner.actionText && (
                                 <p className="text-white text-[12px] font-medium mt-[5px] underline underline-offset-2 cursor-pointer z-10">
                                     {banner.actionText}
@@ -58,9 +59,8 @@ const Banner = () => {
                             )}
 
                             {/* 우측 하단 페이지네이션 (예: 1/4 전체 >) */}
-                            <div className="absolute bottom-[8px] right-[8px] bg-white/40 text-white text-[11px] font-regular px-[6px] py-[2px] rounded-[20px] flex items-center gap-[2px]">
-                                {index + 1}/{bannerData.length} 전체 
-                                <span className="text-[11px] ml-[2px] opacity-80">&#10095;</span>
+                            <div className="absolute bottom-[8px] right-[8px] bg-white/20 text-white text-[11px] font-regular px-[8px] py-[2px] rounded-[20px] flex items-center gap-[2px]">
+                                {index + 1} / {bannerData.length}
                             </div>
                         </div>
                     ))}
