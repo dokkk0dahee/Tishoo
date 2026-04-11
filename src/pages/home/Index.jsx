@@ -29,28 +29,28 @@ const Home = () => {
                     </h6>
 
                     {/* TODO: 설문 데이터의 날짜 정보를 기반으로 동적으로 계산하여 표시하도록 수정 필요 */}
-                    <div className="bg-[#EDDFCA] rounded-[16px] p-[16px] flex flex-col gap-[12px]">
+                    <div className="bg-[#F4F1EE] rounded-[8px] px-[14px] py-[12px] flex flex-col">
                         {/* 왼쪽 상단: N일차 뱃지 */}
-                        <div className="bg-[#7A5A44] text-white text-[12px] font-semibold px-[8px] py-[3px] rounded-[100px] w-fit">
+                        <div className="bg-[#EDDFCA] text-[#5B3C27] text-[14px] font-semibold mb-[8px] px-[8px] py-[3px] rounded-[8px] w-fit">
                             2일차
                         </div>
 
                         {/* 정보 리스트 */}
-                        <div className="flex-1 flex flex-col gap-[8px] text-[#331B0C] text-[14px] font-normal leading-[20px]">
-                            <div><span className="font-semibold">상주:</span> 김슝슝</div>
-                            <div><span className="font-semibold">장소:</span> 00 장례식장 102호</div>
-                            <div><span className="font-semibold">일정:</span> 2026년 5월 5일</div>
-                            <div><span className="font-semibold">발인:</span> 2026년 5월 7일 
+                        <div className="flex-1 flex flex-col gap-[5px] text-black text-[14px] font-medium leading-[20px]">
+                            <div><span>상주:</span> 김슝슝</div>
+                            <div><span>장소:</span> 00 장례식장 102호</div>
+                            <div><span>일정:</span> 2026년 5월 5일</div>
+                            <div className="flex items-center justify-between w-full mt-[-5px]">
+                                <div><span>발인:</span> 2026년 5월 7일</div>
                                 {/* 우측 하단: 연필 모양 수정 버튼 */}
-                                <span className="flex justify-end">
-                                    <button className="w-[40px] h-[40px] bg-[#B9A392] rounded-[8px] flex items-center justify-center text-[#331B0C] focus:outline-none transition-colors hover:bg-[#8C7462]">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 20H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                            <path d="M16.5 3.5C16.8978 3.10217 17.4374 2.87868 18 2.87868C18.2786 2.87868 18.5544 2.93355 18.8118 3.04015C19.0692 3.14676 19.3031 3.303 19.5 3.5C19.6969 3.6969 19.8532 3.93081 19.9598 4.1882C20.0664 4.44558 20.1213 4.72143 20.1213 5C20.1213 5.27857 20.0664 5.55442 19.9598 5.8118C19.8532 6.06919 19.6969 6.3031 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                        </svg>
-                                    </button>
-                                </span>
+                                <button className="w-[32px] h-[32px] bg-[#EDDFCA] rounded-[8px] flex items-center justify-center focus:outline-none transition-colors">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M16.5 3.5C16.8978 3.10217 17.4374 2.87868 18 2.87868C18.2786 2.87868 18.5544 2.93355 18.8118 3.04015C19.0692 3.14676 19.3031 3.303 19.5 3.5C19.6969 3.6969 19.8532 3.93081 19.9598 4.1882C20.0664 4.44558 20.1213 4.72143 20.1213 5C20.1213 5.27857 20.0664 5.55442 19.9598 5.8118C19.8532 6.06919 19.6969 6.3031 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
