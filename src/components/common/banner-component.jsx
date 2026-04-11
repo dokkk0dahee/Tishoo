@@ -1,4 +1,3 @@
-import { link } from "framer-motion/client";
 import bannerImg1 from "../../assets/images/banner-1.png";
 import bannerImg2 from "../../assets/images/banner-2.png";
 import bannerImg3 from "../../assets/images/banner-3.png";

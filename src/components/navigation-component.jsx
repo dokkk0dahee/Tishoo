@@ -9,7 +9,7 @@ const Navigation = () => {
 
     // 현재 경로에 따라 아이콘 색상을 바꿔주는 함수
     const getActiveClass = (path) => 
-        location.pathname === path ? "text-[#0A2472]" : "text-[#8E8E93]";
+        location.pathname === path ? "text-[#331B0C]" : "text-[#8E8E93]";
 
     return (
         <nav className="fixed bottom-0 w-full max-w-[480px] h-[78px] pb-[22px] bg-white border-t border-[#E3E6F0] flex justify-around items-center px-2 z-50">

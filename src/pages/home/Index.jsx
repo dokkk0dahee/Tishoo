@@ -2,6 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Checklist from "../../components/common/checklist-component";
 import GuideSection from "../../components/common/guidesection-component";
+import Banner from "../../components/common/banner-component";
+import GuideIcon from "../../assets/Icons/GuideIcon";
+import NextIcon from "../../assets/Icons/NextIcon";
+import EditIcon from "../../assets/Icons/editIcon";
+
 
 const Home = () => {
     const navigate = useNavigate();
@@ -26,7 +31,7 @@ const Home = () => {
                 
                 {/* 2. 장례 정보 입력 섹션 */}
                 <div>
-                    <h6 className="text-[16px] font-bold text-[#0B1F57] mb-[16px]">
+                    <h6 className="text-[16px] font-bold text-[#331B0C] mb-[16px]">
                         장례 정보 입력
                     </h6>
 
@@ -59,7 +64,7 @@ const Home = () => {
             </div>
         ) : (
             <div>
-                <h6 className="text-[16px] font-bold text-[#0B1F57] leading-[22px] mt-[15px] mb-[12px]">
+                <h6 className="text-[16px] font-bold text-[#331B0C] leading-[22px] mt-[15px] mb-[12px]">
                     장례준비, 무엇부터 해야 할까요?
                 </h6>
                 <button 
@@ -70,7 +75,7 @@ const Home = () => {
             </div>
         )}
         <div>
-            <h6 className="text-[16px] font-bold text-[#0B1F57] leading-[22px] mt-[30px] mb-[12px]">
+            <h6 className="text-[16px] font-bold text-[#331B0C] leading-[22px] mt-[30px] mb-[12px]">
                     상주가 처음이라면 읽어야할 필독 가이드
             </h6> 
             <GuideSection />

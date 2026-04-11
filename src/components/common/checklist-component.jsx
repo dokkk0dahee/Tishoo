@@ -44,7 +44,7 @@ const Checklist = () => {
         <div>
             {/* 타이틀 및 추가하기 버튼 */}
             <div className="flex justify-between items-center mb-[16px]">
-                <h6 className="text-[16px] font-bold text-[#0B1F57] line-height-[22px]">
+                <h6 className="text-[16px] font-bold text-[#331B0C] line-height-[22px]">
                     상주 체크리스트
                 </h6>
                 <button className="flex items-center gap-[4px] text-[#8F612F] text-[14px] font-medium">
