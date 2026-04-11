@@ -4,27 +4,27 @@ import { useNavigate } from "react-router-dom";
 const guideList = [
     {
         id: "consult", // 이동할 페이지 주소에 쓸 고유 ID
-        title: "[사전 상담]",
-        description: "장례 절차와 예상 비용을 미리 확인하여 슬픔에만 집중할 수 있도록 돕습니다.",
+        title: "[장례 미리 준비하기]",
+        description: "미리 알아두면 든든한 장례 비용 구성의 비밀",
         // 실제 프로젝트에서는 이미지 경로를 넣으시면 됩니다. 예: img: "/assets/guide1.png"
         imgBg: "bg-gradient-to-b from-[#0A1128] to-[#1C3166]" 
     },
     {
         id: "passing",
-        title: "[임종]",
-        description: "장례 절차와 예상 비용을 미리 확인하여 슬픔에만 집중할 수 있도록 돕습니다.",
+        title: "[임종 직후 대처]",
+        description: "자택 vs 병원, 임종 장소에 따른 '사망진단서' 발급 안내",
         imgBg: "bg-gradient-to-b from-[#0A1128] to-[#1A264A]"
     },
     {
         id: "during",
-        title: "[장례 중]",
-        description: "장례 절차와 예상 비용을 미리 확인하여 슬픔에만 집중할 수 있도록 돕습니다.",
+        title: "[장례 진행 가이드]",
+        description: "장례 1일차 ~ 3일차, 날짜별 핵심 절차 한눈에 보기",
         imgBg: "bg-gradient-to-b from-[#0A1128] to-[#1C3166]"
     },
     {
         id: "leaving",
-        title: "[발인]",
-        description: "장례 절차와 예상 비용을 미리 확인하여 슬픔에만 집중할 수 있도록 돕습니다.",
+        title: "[장례 후 해야할 일 ]",
+        description: "장례 후 한 달 내에 반드시 해야 할 행정 처리 3가지",
         imgBg: "bg-gradient-to-b from-[#0A1128] to-[#1C3166]"
     }
 ];
