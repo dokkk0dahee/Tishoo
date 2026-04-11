@@ -45,7 +45,7 @@ const Banner = () => {
                         <div 
                             key={banner.id} 
                             // shrink-0: 카드가 찌그러지지 않게 방지, snap-center: 화면 가운데에 자석처럼 붙음
-                            className={`shrink-0 w-[90%] h-[120px] rounded-[8px] p-[16px] flex flex-col justify-center relative snap-center shadow-md`}
+                            className={`shrink-0 w-[95%] h-[120px] rounded-[8px] p-[16px] flex flex-col justify-center relative snap-center shadow-md`}
                         style={{
                                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner.imageUrl})`,
                                 backgroundSize: '100% 100%',
