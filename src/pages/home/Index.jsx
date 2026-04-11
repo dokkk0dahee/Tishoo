@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Checklist from "../../components/common/checklist-component";
-import GuideSection from "../../components/common/guidesection-component";
-import Banner from "../../components/common/banner-component";
+import Checklist from "./components/checklist-component";
+import GuideSection from "./components/guidesection-component";
+import Banner from "./components/banner-component";
 import GuideIcon from "../../assets/Icons/GuideIcon";
 import NextIcon from "../../assets/Icons/NextIcon";
 import EditIcon from "../../assets/Icons/editIcon";

@@ -1,7 +1,7 @@
-import bannerImg1 from "../../assets/images/banner-1.png";
-import bannerImg2 from "../../assets/images/banner-2.png";
-import bannerImg3 from "../../assets/images/banner-3.png";
-import bannerImg4 from "../../assets/images/banner-4.png"; 
+import bannerImg1 from "../../../assets/images/banner-1.png";
+import bannerImg2 from "../../../assets/images/banner-2.png";
+import bannerImg3 from "../../../assets/images/banner-3.png";
+import bannerImg4 from "../../../assets/images/banner-4.png"; 
 import { Link } from "react-router-dom";
 
 const bannerData = [
