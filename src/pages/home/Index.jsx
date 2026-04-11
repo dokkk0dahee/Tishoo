@@ -2,10 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Checklist from "../../components/common/checklist-component";
 import GuideSection from "../../components/common/guidesection-component";
-import GuideIcon from "../../assets/Icons/GuideIcon";
-import NextIcon from "../../assets/Icons/NextIcon";
-import EditIcon from "../../assets/Icons/editIcon";
-
 
 const Home = () => {
     const navigate = useNavigate();
@@ -25,8 +21,10 @@ const Home = () => {
         {/* 조건부 렌더링: 설문 데이터가 있을 때 */}
         {surveyData ? (
             <div className="flex flex-col gap-[36px]">
+                {/* 1. 상단 배너 섹션 */}
+                <Banner />
                 
-                {/* 1. 장례 정보 입력 섹션 */}
+                {/* 2. 장례 정보 입력 섹션 */}
                 <div>
                     <h6 className="text-[16px] font-bold text-[#0B1F57] mb-[16px]">
                         장례 정보 입력
@@ -56,7 +54,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* 2. 상주 체크리스트 섹션 */}
+                {/* 3. 상주 체크리스트 섹션 */}
                 <Checklist />
             </div>
         ) : (
