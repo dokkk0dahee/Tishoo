@@ -16,8 +16,8 @@ const Checklist = () => {
                 { id: 42, text: "인원 확인", checked: false }
             ]
         },
-        { id: 5, text: "운구 인원 확정", subtext: "3일차 발인 때 운구 인원 4~6명이 필요", checked: true },
-        { id: 6, text: "음식 준비 확인", subtext: "2일차는 조문객이 제일 많이 오는 날이에요", checked: true },
+        { id: 5, text: "운구 인원 확정", subtext: "3일차 발인 때 운구 인원 4~6명이 필요", checked: false },
+        { id: 6, text: "음식 준비 확인", subtext: "2일차는 조문객이 제일 많이 오는 날이에요", checked: false },
     ]);
 
     // 체크박스 토글 핸들러 (메인 항목)
@@ -47,8 +47,8 @@ const Checklist = () => {
                 <h6 className="text-[16px] font-bold text-[#0B1F57] line-height-[22px]">
                     상주 체크리스트
                 </h6>
-                <button className="flex items-center gap-[4px] text-[#4568D2] text-[14px] font-medium">
-                    <div className="w-[18.75px] h-[18.75px] bg-[#3E63A8] text-white rounded-[2.5px] flex items-center justify-center pb-[3px] text-[20px]">
+                <button className="flex items-center gap-[4px] text-[#8F612F] text-[14px] font-medium">
+                    <div className="w-[18.75px] h-[18.75px] bg-[#8F612F] text-white rounded-[2.5px] flex items-center justify-center pb-[3px] text-[20px]">
                         +
                     </div>
                     추가하기 
@@ -64,7 +64,7 @@ const Checklist = () => {
                             <button 
                                 onClick={() => toggleCheck(item.id)}
                                 className={`w-[18px] h-[18px] mt-[1px] rounded-[4px] flex-shrink-0 flex items-center justify-center transition-colors border-[1.5px] ${
-                                    item.checked ? "bg-[#3E63A8] border-[#3E63A8]" : "bg-white border-[#8E8E93] border-[1.5px]"
+                                    item.checked ? "bg-[#8F612F] border-[#8F612F]" : "bg-white border-[#8E8E93] border-[1.5px]"
                                 }`}
                             >
                                 {item.checked && (
@@ -78,7 +78,7 @@ const Checklist = () => {
                                     {item.text}
                                 </span>
                                 {item.subtext && (
-                                    <span className="text-[12px] text-[#3E63A8]">
+                                    <span className="text-[12px] text-[#8F612F]">
                                         {item.subtext}
                                     </span>
                                 )}
