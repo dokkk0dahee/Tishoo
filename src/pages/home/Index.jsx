@@ -41,7 +41,7 @@ const Home = () => {
                     장례준비, 무엇부터 해야 할까요?
                 </h6>
                 <button 
-                    className="w-full h-[64px] bg-[#B9CCFD] rounded-[8px] border-[1px] border-[#E3E6F0] text-[#0A2472] text-[14px] font-semibold"
+                    className="w-full h-[64px] bg-[#EDDFCA] rounded-[8px] border-[1px] border-[#E3E6F0] text-[#0A2472] text-[14px] font-semibold"
                     onClick={handleButtonClick}
                 > 단계별 안내 받으러 가기
                 </button>

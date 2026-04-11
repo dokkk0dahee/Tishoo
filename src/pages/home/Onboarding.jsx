@@ -176,11 +176,11 @@ const Onboarding = () => {
         {/* 배경 선 래퍼 (점선 위에 파란 실선을 겹쳐 올립니다) */}
         <div className="absolute left-[-15px] right-[-15px] h-[1.5px] -translate-y-1/2 z-0">
             {/* 기본 점선 (연한 파란색) */}
-            <div className="absolute top-0 left-0 w-full h-full border-t-[1.5px] border-dashed border-[#B9CCFD]"></div>
+            <div className="absolute top-0 left-0 w-full h-full border-t-[1.5px] border-dashed border-[#EDDFCA]"></div>
             
             {/* 차오르는 파란 실선 */}
             <div 
-                className="absolute top-0 left-0 h-full border-t-[1.5px] border-solid border-[#B9CCFD] transition-all duration-500 ease-in-out"
+                className="absolute top-0 left-0 h-full border-t-[1.5px] border-solid border-[#EDDFCA] transition-all duration-500 ease-in-out"
                 style={{ width: currentStep === 1 
                     ? "15%" // 1단계일 때 선이 얼마나 나갈지 여기서 직접 조절하세요! (예: "20px", "10%" 등)
                     : `${((currentStep - 1) / (surveyData.length - 1)) * 100}%` }}
@@ -191,15 +191,15 @@ const Onboarding = () => {
         <div key={data.step} className="z-10 bg-white rounded-full">
             {currentStep >= data.step ? (
             // 활성화된 스텝
-            <div className="w-[31px] h-[31px] bg-white rounded-full border-2 border-[#B9CCFD] flex items-center justify-center transition-all">
-                <div className="w-[24px] h-[24px] rounded-full bg-[#B9CCFD] flex items-center justify-center transition-all text-[#0B1F57] text-[17px] font-semibold leading-[22px]">
+            <div className="w-[31px] h-[31px] bg-white rounded-full border-2 border-[#EDDFCA] flex items-center justify-center transition-all">
+                <div className="w-[24px] h-[24px] rounded-full bg-[#EDDFCA] flex items-center justify-center transition-all text-[#0B1F57] text-[17px] font-semibold leading-[22px]">
                     {data.step}
                 </div>
             </div>
             ) : (
             // 아직 안 간 스텝 (선이 뚫고 보이지 않도록 31px 흰색 배경으로 감싸줌)
             <div className="w-[31px] h-[31px] bg-white rounded-full flex items-center justify-center transition-all">
-                <div className="w-[9px] h-[9px] rounded-full bg-[#B9CCFD] transition-all"></div>
+                <div className="w-[9px] h-[9px] rounded-full bg-[#EDDFCA] transition-all"></div>
             </div>
             )}
         </div>
@@ -258,8 +258,8 @@ const Onboarding = () => {
                             onClick={() => toggleOption(option)}
                             className={`w-full h-[42px] px-[14px] text-left rounded-[8px] border-[1px] transition-all duration-200 ${
                                 isSelected
-                                ? "border-[#E3E6F0] bg-[#E9EFFE] text-[#08173E] text-[14px] font-semibold"
-                                : "border-[#E3E6F0] bg-[#F5F5F5] text-[#8E8E93] text-[14px] font-semibold"
+                                ? "border-[#CDD1D5] bg-[#EDDFCA] text-[#331B0C] text-[14px] font-semibold"
+                                : "border-[#CDD1D5] bg-[#F5F5F5] text-[#8E8E93] text-[14px] font-semibold"
                             }`}
                         >
                             {option}
@@ -273,7 +273,7 @@ const Onboarding = () => {
         <div className="flex-1 flex mt-[16px] w-full gap-[10px] z-20">
             <button 
             onClick={handlePrev} 
-            className="flex-1 bg-[#B9CCFD] h-[42px] text-[#FBFBFB] rounded-[8px] border-[#E3E6F0] font-semibold text-[14px] transition-colors"
+            className="flex-1 bg-[#EDDFCA] h-[42px] text-[#8F612F] rounded-[8px] border-[#E3E6F0] font-semibold text-[14px] transition-colors"
             > 이전
             </button>
             <button 
@@ -281,8 +281,8 @@ const Onboarding = () => {
             disabled={!isNextEnabled} // 선택이 없으면 버튼 비활성화
             className={`flex-1 h-[42px] rounded-[8px] font-semibold text-[14px] transition-all duration-300 ${
                 isNextEnabled 
-                      ? "bg-[#0A2472] text-[#FBFBFB] cursor-pointer" // 선택했을 때 (파란 불 켜짐)
-                      : "bg-[#E9EFFE] text-[#3E63A8] cursor-not-allowed" // 선택 안 했을 때 (회색 비활성화)
+                      ? "bg-[#5B3C27] text-[#FBFBFB] cursor-pointer" // 선택했을 때 (파란 불 켜짐)
+                      : "bg-[#E6E6E6] text-[#8E8E93] cursor-not-allowed" // 선택 안 했을 때 (회색 비활성화)
             }`}>
             {currentStep === surveyData.length ? "확인" : "다음"}
             </button>
@@ -310,13 +310,13 @@ const Onboarding = () => {
                         </button>
                         <button 
                             onClick={() => setIsModalOpen(false)} // 아니오 누르면 창만 닫기
-                            className="flex-1 h-[42px] bg-[#0A2472] border-[1px] border-[#E3E6F0] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
+                            className="flex-1 h-[42px] bg-[#5B3C27] border-[1px] border-[#E3E6F0] text-[#FBFBFB] rounded-[8px] font-semibold text-[14px]"
                         >
                             계속하기
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> 
         )}
 
         </div>
