@@ -93,7 +93,7 @@ const GuideDetail = () => {
     const data = guideDetails[id] || guideDetails["consult"];
 
     return (
-        <div className="flex flex-col w-screen h-full bg-[#F8F9FA] overflow-y-auto mx-[-16px] my-[-16px]">
+        <div className="flex flex-col w-screen h-full overflow-y-auto mx-[-16px] mt-[-16px]">
     
             {/* 1. 상단 다크 네이비 배너 영역 */}
             <div className={`w-full pt-[40px] pb-[60px] ${data.imgBg} relative flex flex-col items-center justify-center px-6 text-center`}>
@@ -102,7 +102,7 @@ const GuideDetail = () => {
             </div>
 
             {/* 2. 본문 내용 영역 (둥근 모서리로 배너를 덮는 효과) */}
-            <div className="flex-1 bg-white rounded-t-[24px] -mt-[24px] p-[24px] z-20 relative shadow-sm">
+            <div className="flex-1 bg-white rounded-t-[24px] mt-[-24px] p-[24px] z-20 relative">
                 
                 {/* 2-1. 안내 사항 */}
                 <div className="mb-[30px]">
