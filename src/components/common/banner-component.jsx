@@ -1,31 +1,37 @@
+import { link } from "framer-motion/client";
 import bannerImg1 from "../../assets/images/banner-1.png";
 import bannerImg2 from "../../assets/images/banner-2.png";
 import bannerImg3 from "../../assets/images/banner-3.png";
 import bannerImg4 from "../../assets/images/banner-4.png"; 
+import { Link } from "react-router-dom";
 
 const bannerData = [
     {
         id: 1,
         title: "故 홍길동 님을 모시는 중입니다.",
         actionText: "",
+        linkTo: "",
         imageUrl: bannerImg1, 
     },
     {
         id: 2,
         title: "마음을 담은 부고장 \n정성껏 준비해 드립니다.",
         actionText: "부고장 만들러 가기 >",
+        linkTo: "",  // TODO: 추후 부고장 작성 페이지로 연결 예정
         imageUrl: bannerImg2  , 
     },
     {
         id: 3,
         title: "홍길동님과 함께했던 \n봄날의 사진을 확인해 보세요.",
         actionText: "",
+        linkTo: "",  
         imageUrl: bannerImg3, 
     },
     {
         id: 4,
         title: "조문객분들께 전할 \n답례 인사말을 확인해 보세요.",
         actionText: "인사말 보러 가기 >",
+        linkTo: "", //TODO: 추후 답례 인사말 페이지로 연결 예정
         imageUrl: bannerImg4,
     }
 ];
@@ -53,9 +59,11 @@ const Banner = () => {
                             
                             {/* 액션 텍스트 */}
                             {banner.actionText && (
-                                <p className="text-white text-[12px] font-medium mt-[5px] underline underline-offset-2 cursor-pointer z-10">
-                                    {banner.actionText}
-                                </p>
+                                <Link
+                                    to={banner.linkTo}
+                                    className="text-white text-[12px] font-medium mt-[5px] underline underline-offset-2 cursor-pointer z-10 w-fit"
+                                    > {banner.actionText}
+                                </Link>
                             )}
 
                             {/* 우측 하단 페이지네이션 (예: 1/4 전체 >) */}
