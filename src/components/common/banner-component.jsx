@@ -1,27 +1,32 @@
+import bannerImg1 from "../../assets/images/banner-1.png";
+import bannerImg2 from "../../assets/images/banner-2.png";
+import bannerImg3 from "../../assets/images/banner-3.png";
+import bannerImg4 from "../../assets/images/banner-4.png"; 
+
 const bannerData = [
     {
         id: 1,
         title: "故 홍길동 님을 모시는 중입니다.",
         actionText: "",
-        bgClass: "bg-[#0A1128]", 
+        imageUrl: bannerImg1, 
     },
     {
         id: 2,
         title: "마음을 담은 부고장 \n정성껏 준비해 드립니다.",
         actionText: "부고장 만들러 가기 >",
-        bgClass: "bg-[#2A1E17]", 
+        imageUrl: bannerImg2  , 
     },
     {
         id: 3,
         title: "홍길동님과 함께했던 \n봄날의 사진을 확인해 보세요.",
         actionText: "",
-        bgClass: "bg-[#1C2321]", 
+        imageUrl: bannerImg3, 
     },
     {
         id: 4,
         title: "조문객분들께 전할 \n답례 인사말을 확인해 보세요.",
         actionText: "인사말 보러 가기 >",
-        bgClass: "bg-[#111111]",
+        imageUrl: bannerImg4,
     }
 ];
 
@@ -29,21 +34,25 @@ const Banner = () => {
     return (
         <div className="flex-col w-screen bg-[#F8F9FA] overflow-x-hidden">
             <div className="w-full bg-white">
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-[12px] px-[16px] pb-[10px] [&::-webkit-scrollbar]:hidden">
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-[12px] [&::-webkit-scrollbar]:hidden">
                     {bannerData.map((banner, index) => (
                         <div 
                             key={banner.id} 
                             // shrink-0: 카드가 찌그러지지 않게 방지, snap-center: 화면 가운데에 자석처럼 붙음
-                            className={`shrink-0 w-[90%] h-[120px] rounded-[8px] p-[16px] flex flex-col justify-center relative snap-center ${banner.bgClass} shadow-md`}
-                        >
+                            className={`shrink-0 w-[90%] h-[120px] rounded-[8px] p-[16px] flex flex-col justify-center relative snap-center shadow-md`}
+                        style={{
+                                backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${banner.imageUrl})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center'
+                            }}>
                             {/* 배너 텍스트 */}
-                            <h2 className="text-white text-[17px] font-medium leading-[24px] break-keep whitespace-pre-line">
+                            <h2 className="text-white text-[17px] font-medium leading-[24px] break-keep whitespace-pre-line z-10">
                                 {banner.title}
                             </h2>
                             
                             {/* 부고장/인사말 액션 텍스트 */}
                             {banner.actionText && (
-                                <p className="text-white text-[12px] font-medium mt-[5px] underline underline-offset-2 cursor-pointer">
+                                <p className="text-white text-[12px] font-medium mt-[5px] underline underline-offset-2 cursor-pointer z-10">
                                     {banner.actionText}
                                 </p>
                             )}
