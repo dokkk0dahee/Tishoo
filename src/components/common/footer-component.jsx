@@ -13,30 +13,29 @@ const Footer = () => {
     ];
 
     return (
-        // 시안과 유사한 연회색 배경(#F4F4F4)과 패딩 적용
-        <footer className="w-screen mx-[-16px] bg-[#F4F4F4] px-[20px] py-[32px] text-[#767676] text-[13px] leading-[22px]">
+        <footer className="w-screen mx-[-16px] bg-[#F4F4F4] mt-[40px] px-[20px] pb-[40px] font-regular text-[#666666] text-[11px] leading-[14px]">
             
             {/* 1. 회사명 */}
-            <div className="font-bold text-[15px] mb-[12px] text-[#555555]">
+            <div className="font-medium text-[12px] mb-[8px] mt-[40px] text-[#666666]">
                 (주) 온별
             </div>
 
             {/* 2. 사업자 정보 */}
-            <div className="flex flex-col mb-[20px]">
+            <div className="flex flex-col mb-[20px] gap-[8px] text-[#666666]">
                 <p>대표 : 김부식</p>
-                <p>주소 : 경기도 성남시 분당구 대왕비판교로 5420</p>
-                <p>사업자등록번호: 987-67-89101</p>
-                <p>개인정보담당 : privacy@djlsajfodvmsl.co.kr</p>
+                <p>주소 :서울특별시 서초구 000</p>
+                <p>사업자등록번호: 000-00-00000</p>
+                <p>개인정보담당 : abcdefj@abcde.co.kr</p>
                 <p>대표번호 : 123-2345-567</p>
             </div>
 
             {/* 3. 면책 조항 (안내문) */}
-            <p className="text-[12px] text-[#999999] leading-[18px] mb-[24px] break-keep">
+            <p className="text-[10px] text-[#8E8E93] leading-[14px] mb-[16px] break-keep">
                 (주)온별은 장례 서비스 예약 및 중개 시스템을 운영하는 중개자이며, 장례 용품 및 서비스 제공의 직접적인 당사자가 아닙니다. 서비스의 품질, 예약 이행, 관련 사고 등에 대한 법적 책임은 해당 서비스를 제공하는 파트너사에게 있습니다.
             </p>
 
             {/* 4. 하단 약관 및 정책 링크 */}
-            <div className="flex flex-wrap items-center gap-y-[6px] text-[13px] font-medium text-[#555555]">
+            <div className="flex flex-wrap items-center gap-y-[6px] text-[10px] font-medium text-[#666666]">
                 {footerLinks.map((link, index) => (
                     <div key={index} className="flex items-center">
                         <Link to={link.path} className="hover:underline">
@@ -49,9 +48,6 @@ const Footer = () => {
                     </div>
                 ))}
             </div>
-            
-            {/* 하단 네비게이션 바에 가려지지 않도록 여백 추가 (필요 시 조절) */}
-            <div className="h-[40px]"></div>
         </footer>
     );
 };
