@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navigation from "./navigation-component";
 import Header from "./header-componentr";
+import FloatingButton from "./common/floatingbutton-component";
 
 const Layout = () => {
     return (
@@ -19,6 +20,9 @@ const Layout = () => {
 
             {/* 공통 하단 네비바 */}    
             <Navigation />
+
+            {/* 카카오톡 상담 플로팅 버튼 */}
+            <FloatingButton />
         </div>
     </div>
     );
