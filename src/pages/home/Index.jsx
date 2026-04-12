@@ -6,6 +6,7 @@ import Banner from "./components/banner-component";
 import GuideIcon from "../../assets/Icons/GuideIcon";
 import NextIcon from "../../assets/Icons/NextIcon";
 import EditIcon from "../../assets/Icons/editIcon";
+import Footer from "../../components/common/footer-component";
 
 
 const Home = () => {
@@ -80,6 +81,7 @@ const Home = () => {
             </h6> 
             <GuideSection />
         </div>
+        <Footer />
     </div>
     );
 };
